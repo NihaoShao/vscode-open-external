@@ -1,0 +1,106 @@
+{
+  "name": "open-external-cmd",
+  "displayName": "Open External CMD",
+  "description": "在项目根目录或资源管理器选中路径打开独立外部 CMD（Ctrl+C 可正常中断）。",
+  "version": "0.0.5",
+  "publisher": "NihaoShao",
+  "icon": "images/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/githubshaoguoyu/vscode-open-external-cmd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/githubshaoguoyu/vscode-open-external-cmd/issues"
+  },
+  "homepage": "https://github.com/githubshaoguoyu/vscode-open-external-cmd#readme",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "cmd",
+    "terminal",
+    "external terminal",
+    "open cmd",
+    "explorer",
+    "context menu"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:openExternalCmd.openRoot",
+    "onCommand:openExternalCmd.openHere"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "openExternalCmd.openRoot",
+        "title": "打开外部终端（项目根目录）"
+      },
+      {
+        "command": "openExternalCmd.openHere",
+        "title": "打开外部终端"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "alt+c",
+        "command": "-toggleFindCaseSensitive",
+        "when": "editorFocus"
+      },
+      {
+        "key": "alt+c",
+        "command": "-toggleSearchCaseSensitive",
+        "when": "searchViewletFocus"
+      },
+      {
+        "key": "alt+c",
+        "command": "-toggleSearchEditorCaseSensitive",
+        "when": "inSearchEditor && searchInputBoxFocus"
+      },
+      {
+        "command": "openExternalCmd.openRoot",
+        "key": "alt+c",
+        "mac": "alt+c",
+        "when": "!terminalFocus"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "openExternalCmd.openHere",
+          "group": "navigation@90",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "openExternalCmd.openHere",
+          "group": "navigation@90",
+          "when": "resourceScheme == file"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "openExternalCmd.openHere",
+          "group": "navigation@90",
+          "when": "resourceScheme == file"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "icon": "node build-icon.mjs",
+    "package": "npm run icon && npm run compile && npx --yes @vscode/vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@resvg/resvg-js": "~2.6.2",
+    "@types/node": "^18.19.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.3.0"
+  }
+}

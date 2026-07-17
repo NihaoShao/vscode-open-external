@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="tile" x1="40" y1="24" x2="220" y2="236" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2A2F36"/>
+      <stop offset="1" stop-color="#171A1F"/>
+    </linearGradient>
+    <linearGradient id="window" x1="52" y1="56" x2="204" y2="184" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3A424C"/>
+      <stop offset="1" stop-color="#2A313A"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="156" y1="148" x2="228" y2="220" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#3DDC84"/>
+      <stop offset="1" stop-color="#1DB954"/>
+    </linearGradient>
+    <filter id="soft" x="-25%" y="-25%" width="150%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <!-- rounded app tile -->
+  <rect x="12" y="12" width="232" height="232" rx="56" fill="url(#tile)"/>
+
+  <!-- terminal window -->
+  <g filter="url(#soft)">
+    <rect x="48" y="58" width="160" height="118" rx="18" fill="url(#window)"/>
+
+    <!-- title bar dots -->
+    <circle cx="72" cy="80" r="7" fill="#FF5F57"/>
+    <circle cx="96" cy="80" r="7" fill="#FEBC2E"/>
+    <circle cx="120" cy="80" r="7" fill="#28C840"/>
+
+    <!-- prompt chevron > -->
+    <path d="M70 122 L96 142 L70 162" fill="none" stroke="#3DDC84" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- cursor block -->
+    <rect x="112" y="126" width="16" height="32" rx="4" fill="#3DDC84"/>
+
+    <!-- command line stubs -->
+    <rect x="140" y="136" width="42" height="10" rx="5" fill="#6B7582"/>
+  </g>
+
+  <!-- external open badge -->
+  <circle cx="188" cy="176" r="38" fill="url(#badge)" filter="url(#soft)"/>
+  <!-- arrow-up-right in square style -->
+  <path d="M174 190 V166 H198" fill="none" stroke="#0E1C14" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M178 186 L204 160" fill="none" stroke="#0E1C14" stroke-width="10" stroke-linecap="round"/>
+  <path d="M188 160 H204 V176" fill="none" stroke="#0E1C14" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
