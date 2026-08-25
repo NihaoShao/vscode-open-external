@@ -1,4 +1,4 @@
-# Open External
+# Open Terminal Externally
 
 在 VS Code 中打开**独立外部终端窗口**（非内置终端、非 VS Code 托管外部终端），保证 `Ctrl+C` 可正常中断进程。
 
