@@ -1,7 +1,7 @@
 {
-  "name": "open-external-cmd",
-  "displayName": "Open External CMD",
-  "description": "在项目根目录或资源管理器选中路径打开独立外部 CMD（Ctrl+C 可正常中断）。",
+  "name": "open-external",
+  "displayName": "Open External",
+  "description": "在项目根目录或资源管理器选中路径打开独立外部终端（Ctrl+C 可正常中断）。",
   "version": "0.0.5",
   "publisher": "NihaoShao",
   "icon": "images/icon.png",
@@ -29,17 +29,39 @@
   ],
   "main": "./out/extension.js",
   "activationEvents": [
+    "onCommand:openExternal.openRoot",
+    "onCommand:openExternal.openHere",
     "onCommand:openExternalCmd.openRoot",
     "onCommand:openExternalCmd.openHere"
   ],
   "contributes": {
+    "configuration": {
+      "title": "Open External",
+      "properties": {
+        "openExternal.shell": {
+          "type": "string",
+          "default": "",
+          "scope": "window",
+          "description": "外部终端可执行文件。留空或填写 auto 时跟随 VS Code 的 terminal.integrated.defaultProfile.windows；也可以填写 cmd、powershell、pwsh 或其他可执行文件路径。"
+        },
+        "openExternal.shellArgs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "window",
+          "description": "openExternal.shell 的启动参数。"
+        }
+      }
+    },
     "commands": [
       {
-        "command": "openExternalCmd.openRoot",
+        "command": "openExternal.openRoot",
         "title": "打开外部终端（项目根目录）"
       },
       {
-        "command": "openExternalCmd.openHere",
+        "command": "openExternal.openHere",
         "title": "打开外部终端"
       }
     ],
@@ -60,7 +82,7 @@
         "when": "inSearchEditor && searchInputBoxFocus"
       },
       {
-        "command": "openExternalCmd.openRoot",
+        "command": "openExternal.openRoot",
         "key": "alt+c",
         "mac": "alt+c",
         "when": "!terminalFocus"
@@ -69,21 +91,21 @@
     "menus": {
       "explorer/context": [
         {
-          "command": "openExternalCmd.openHere",
+          "command": "openExternal.openHere",
           "group": "navigation@90",
           "when": "resourceScheme == file"
         }
       ],
       "editor/title/context": [
         {
-          "command": "openExternalCmd.openHere",
+          "command": "openExternal.openHere",
           "group": "navigation@90",
           "when": "resourceScheme == file"
         }
       ],
       "editor/context": [
         {
-          "command": "openExternalCmd.openHere",
+          "command": "openExternal.openHere",
           "group": "navigation@90",
           "when": "resourceScheme == file"
         }
