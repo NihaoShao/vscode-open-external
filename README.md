@@ -61,5 +61,5 @@ mise exec -- npm run package
 然后：
 
 ```bash
-code --install-extension open-external-0.0.5.vsix
+code --install-extension open-external-cmd-0.0.6.vsix
 ```

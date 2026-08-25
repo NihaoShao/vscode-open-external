@@ -1,8 +1,8 @@
 {
-  "name": "open-external",
+  "name": "open-external-cmd",
   "displayName": "Open External",
   "description": "在项目根目录或资源管理器选中路径打开独立外部终端（Ctrl+C 可正常中断）。",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "NihaoShao",
   "icon": "images/icon.png",
   "repository": {
